@@ -34,7 +34,7 @@ def median(mylist):
     return sorts[length / 2]
 
 def strip_accents(text):
-
+    # function for removing accents from name of places or location
     try:
         text = unicode(text, 'utf-8')
     except: # unicode is a default on python 3
@@ -63,7 +63,9 @@ def quartiles(dataPoints):
       return (lowerQ, upperQ)
 
 def scrape_data(start_date, from_place, to_place, city_name):
-
+    
+    # function to extract flight date and price for 60 days from given day
+    
     flight_details = []
     final_flight_details = []
 
@@ -145,6 +147,9 @@ def scrape_data(start_date, from_place, to_place, city_name):
     print df
 
 def scrape_data_90(start_date, from_place, to_place, city_name):
+    
+    # function to extract the flight date and price for 90 days from the given day.
+    
     flight_details = []
     final_flight_details = []
 
@@ -259,6 +264,8 @@ def scrape_data_90(start_date, from_place, to_place, city_name):
     task_3_IQR(df)
 
 def task_3_dbscan(flight_data):
+    
+    # function to perform DBSCAN clustering and identify outliers (outrageous flight price) 
     price = np.array([x for x in flight_data['Price']])
     final_noise_point = []
     outliers = []
@@ -338,6 +345,9 @@ def task_3_dbscan(flight_data):
     plt.show(block=True)
 
 def task_3_IQR(flight_data):
+    
+    # function to detect outliers using Interquartile range
+    
     outliers=[]
     outliers_price=[]
     Prices=flight_data['Price'].values.tolist()
